@@ -134,3 +134,73 @@ button:hover{
 .artist img{
     width:100%;
 }
+
+@media(max-width: 500px) {
+    nav{
+        width:60%;
+        display:flex;
+        justify-content:space-evenly;
+        margin-top:5%;
+    }
+
+    .title-container div {	
+        background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/John_Martin_-_The_Plains_of_Heaven_-_Google_Art_Project.jpg/1920px-John_Martin_-_The_Plains_of_Heaven_-_Google_Art_Project.jpg');		
+        background-position: center;	
+        color: white;	
+        width:100%;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height:60vh;
+        margin:5% 0;
+    }	
+
+    h1 {
+        font-size: 5rem;
+    }
+
+
+    .artists-container{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width:90%;
+        padding-bottom: 20%;
+    } 
+
+    .artist {
+        width: 100%;
+    }
+
+    .artist img {	
+        width: 50%;
+        height:15rem;	
+        object-fit: cover;	
+        display: block;	
+        margin: 2%;	
+        margin-top: 4%;	
+        margin-left: auto;	
+        margin-right: auto;	
+        border-radius: 2%;	
+    }	
+
+    
+
+   .artist .bio {
+       font-size:  1.125rem;
+       width: 80%;
+       margin: 0 auto;
+       padding-top: 3%
+    }
+
+   .artist a {
+       font-size: 2rem;
+   }
+
+   .artist:nth-of-type(2n) {
+margin-top: 5%;
+   }
+
+}

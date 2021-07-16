@@ -208,17 +208,20 @@ Practice accessing data above by console.log-ing following items:
 (no functions needed) */
 
 //(1) Name of the first artist (0th index) in the array
-
+artists[0].name = "Amedeo Modigliani"
+console.log(`task 1a`, artists[0].name);
 
 //(2) Bio of the third artist (2nd index) in the array 
-
+artists[2].bio = "Diego María de la Concepción Juan Nepomuceno Estanislao de la Rivera y Barrientos Acosta y Rodríguez, known as Diego Rivera (Spanish pronunciation: [ˈdjeɣo riˈβeɾa]; December 8, 1886 – November 24, 1957) was a prominent Mexican painter. His large frescoes helped establish the Mexican mural movement in Mexican art. Between 1922 and 1953, Rivera painted murals in, among other places, Mexico City, Chapingo, Cuernavaca, San Francisco, Detroit, and New York City. In 1931, a retrospective exhibition of his works was held at the Museum of Modern Art in New York. Rivera had a volatile marriage with fellow Mexican artist Frida Kahlo."
+console.log(`task 1b`, artists[2].bio); 
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 (no function needed) 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
 
-
+artists[8].name = "Vincent Van Dough"
+console.log(`task 2`, artists[8]);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
 Use getArtistByIndex to do the following:
@@ -228,10 +231,12 @@ Use getArtistByIndex to do the following:
 
 Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(/*Your Code Here*/) {
-  /*Your Code Here*/
+function getArtistByIndex(array, number) {
+
+  return `the artist at index ${array[number].id} is ${array[number].name}`
 }
 
+console.log(`task 3`, getArtistByIndex(artists, 0));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -243,10 +248,20 @@ Example born in 1901 and died in 1959 - included -- born in 1889 and died in 192
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 // Hint - Look up the .split() method
 
-function get20s(/*Your Code Here*/) {
-  /*Your Code Here*/
+//let str = "1900-2000"
+function get20s(array, string) {
+
+  let newArtists = []
+  for(let i = 0; i < array.length; i++){
+    let years = array[i].years.split(" - "); 
+    if(years[0] >= 1900 && years[1] <= 2000) {
+      newArtists.push(array[i].name);
+    }
+  }
+  return newArtists;
 }
 
+console.log(`task 4`, get20s(artists));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -258,10 +273,15 @@ Use removeArtist to do the following:
 
 For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
-}
+function removeArtist(array, number) {
+  
+  array.splice(number, 1);
 
+  return array.length;
+}
+ 
+
+ console.log(`task 5`, removeArtist(artists, 0));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use addArtist to do the following: 
@@ -279,11 +299,21 @@ Use addArtist to do the following:
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
+const newArtist = {
+  "id": 20,
+  "name": "Courtney Harris",
+  "years": "1998 - current",
+  "genre": "Web Design",
+  "nationality": "African American",
+  "bio": "A professional web designer in the making"
 }
 
-
+function addArtist(array) {
+  
+  array.push(newArtist);
+  return array;
+}
+console.log(`task 6`, addArtist(artists));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use lotsOfArt to do the following: 
@@ -292,10 +322,17 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/) {
-  /*Your Code Here*/
+function lotsOfArt(artists) {
+  var artists100 = []
+  for(let i = 0;i < artists.length; i++){
+    if (artists[i].paintings > 100){
+      artists100.push(artists[i].name)
+    }
+  }
+  return artists100;
 }
 
+console.log(`task 7`, lotsOfArt(artists));
 
 /* ***** END OF TASKS ***** */
 
